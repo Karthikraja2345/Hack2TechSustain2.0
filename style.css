@@ -1080,76 +1080,6 @@ a:hover {
 }
 
 
-
-
-
-
-
-
-.problem-card {
-    position: relative;
-    width: 300px;
-    height: 450px;
-    border-radius: 15px;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-     text-decoration: none !important;
-}
-
-.problem-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
-    z-index: 1;
-}
-
-
-
-
-
-.glass-overlay h3,
-.glass-overlay p {
-    text-shadow: 0 2px 5px rgba(0,0,0,0.6);
-   
-}
-
-
-.problem-card:nth-child(1) {
-    background-image: url('card11.jpg');
-}
-.problem-card:nth-child(2) {
-    background-image: url('card22.jpg');
-}
-.problem-card:nth-child(3) {
-    background-image: url('card33.jpg');
-}
-.problem-card:nth-child(4) {
-    background-image: url('hello.jpg');
-}
-.problem-card:nth-child(5) {
-    background-image: url('card44.jpg');
-}
-
-
-
-.problems-grid a {
-  text-decoration: none !important;
-}
-
-
-
-
-
-
-
-
-
-
-
-
 code,
 pre {
   font-family: var(--font-family-mono);
@@ -2720,7 +2650,11 @@ html {
   }
   .card {
     width: 100%;              /* take full width */
-    max-width: 350px;         /* keep nice size */
+    max-width: 350px;  
+    margin-bottom: 20px;        /* keep nice size */
+  }
+  .card:last-child {
+    margin-bottom: 0;     /* ✅ no extra space after last card */
   }
 }
 
