@@ -27,7 +27,7 @@ class HackathonWebsite {
 
     // ===== Countdown Timer =====
     initCountdown() {
-        const targetDate = new Date('August 16, 2025 23:59:00').getTime();
+        const targetDate = new Date('October 31, 2025 00:00:00').getTime();
         const updateCountdown = () => {
             const now = new Date().getTime();
             const distance = targetDate - now;
@@ -440,8 +440,8 @@ class ProblemCardInteractions {
 class ActionButtons {
     constructor() { this.initButtons(); }
     initButtons() {
-        const submitBtn = document.querySelector('a[href*="forms.gle"]');
-        if (submitBtn) submitBtn.addEventListener('click', () => console.log('Opening registration form...'));
+        // Google Forms submission option removed
+        console.log('Action buttons initialized');
     }
 }
 
