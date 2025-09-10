@@ -440,7 +440,6 @@ class ProblemCardInteractions {
 class ActionButtons {
     constructor() { this.initButtons(); }
     initButtons() {
-        // Google Forms submission option removed
         console.log('Action buttons initialized');
     }
 }
