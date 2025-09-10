@@ -16,13 +16,30 @@ class HackathonWebsite {
         this.initBackToTop();
         this.initSmoothScrolling();
         this.initNavbarScroll();
+        // this.initParticleCursor();
+        // this.initTechEffects();
         console.log('🚀 Hack2TechSustain 2.0 website initialized successfully!');
     }
 
     setupEventListeners() {
-        window.addEventListener('load', () => this.startLoadAnimations());
+        window.addEventListener('load', () => {
+            this.hideLoadingScreen();
+            this.startLoadAnimations();
+        });
         window.addEventListener('scroll', () => this.handleScroll());
         window.addEventListener('resize', () => this.handleResize());
+    }
+
+    hideLoadingScreen() {
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            setTimeout(() => {
+                loadingScreen.classList.add('fade-out');
+                setTimeout(() => {
+                    loadingScreen.remove();
+                }, 1000);
+            }, 2000); // Show for 2 seconds
+        }
     }
 
     // ===== Countdown Timer =====
@@ -128,6 +145,22 @@ class HackathonWebsite {
                 }
             });
         }, observerOptions);
+
+        // Enhanced scroll animations for fade-in elements
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100); // Stagger animation
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe elements with fade classes
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            fadeObserver.observe(el);
+        });
 
         document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el));
     }
@@ -433,6 +466,100 @@ class ProblemCardInteractions {
         modal.style.opacity = '0';
         modal.style.visibility = 'hidden';
         setTimeout(() => modal.remove(), 300);
+    }
+
+    // ===== Particle Cursor Effect =====
+    initParticleCursor() {
+        const particles = [];
+        let animationId;
+
+        const createParticle = (x, y) => {
+            return {
+                x: x,
+                y: y,
+                size: Math.random() * 3 + 1,
+                speedX: (Math.random() - 0.5) * 2,
+                speedY: (Math.random() - 0.5) * 2,
+                life: 1,
+                decay: Math.random() * 0.02 + 0.01,
+                color: Math.random() > 0.5 ? 'rgba(139, 92, 246, 1)' : 'rgba(255, 107, 107, 1)'
+            };
+        };
+
+        const canvas = document.createElement('canvas');
+        canvas.style.position = 'fixed';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.pointerEvents = 'none';
+        canvas.style.zIndex = '9999';
+        document.body.appendChild(canvas);
+
+        const ctx = canvas.getContext('2d');
+        
+        const resizeCanvas = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        };
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        document.addEventListener('mousemove', (e) => {
+            for (let i = 0; i < 3; i++) {
+                particles.push(createParticle(e.clientX, e.clientY));
+            }
+        });
+
+        const animate = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const particle = particles[i];
+                
+                particle.x += particle.speedX;
+                particle.y += particle.speedY;
+                particle.life -= particle.decay;
+                
+                if (particle.life <= 0) {
+                    particles.splice(i, 1);
+                    continue;
+                }
+                
+                ctx.globalAlpha = particle.life;
+                ctx.fillStyle = particle.color.replace('1)', `${particle.life})`);
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            
+            animationId = requestAnimationFrame(animate);
+        };
+        
+        animate();
+    }
+
+    // ===== Tech Effects =====
+    initTechEffects() {
+        // Add glitch effect to titles on hover
+        document.querySelectorAll('.section-title').forEach(title => {
+            title.addEventListener('mouseenter', () => {
+                title.style.animation = 'glitch 0.5s ease-in-out';
+            });
+            
+            title.addEventListener('animationend', () => {
+                title.style.animation = '';
+            });
+        });
+
+        // Add pulse effect to important buttons
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.animation = 'button-pulse 0.3s ease';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 300);
+            });
+        });
     }
 }
 
