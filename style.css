@@ -4140,6 +4140,14 @@ a {
     --space-xl: 3rem;
     --space-2xl: 4rem;
   }
+  /* Allow the mobile menu to render outside the navbar height */
+  .navbar {
+    overflow: visible;
+  }
+  /* Ensure absolute children position relative to the container */
+  .navbar .container {
+    position: relative;
+  }
   
   .nav-menu {
     display: none;
@@ -4151,6 +4159,9 @@ a {
     flex-direction: column;
     padding: var(--space-md);
     gap: var(--space-sm);
+    z-index: 1002; /* above navbar pseudo elements */
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
   }
   
   .nav-menu.active {
