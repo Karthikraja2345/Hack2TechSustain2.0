@@ -316,24 +316,168 @@ class HackathonWebsite {
         btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     }
 
-    // ===== Navbar Scroll =====
+    // ===== Enhanced Navbar Scroll =====
     initNavbarScroll() {
         const navbar = document.querySelector('.navbar');
         if (!navbar) return;
 
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
         const updateNavbar = () => {
-            if (window.scrollY > 100) {
-                navbar.style.background = 'rgba(0,0,0,0.98)';
-                navbar.style.backdropFilter = 'blur(20px)';
-                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
+            const scrollY = window.scrollY;
+            
+            // Add scrolled class when scrolling down
+            if (scrollY > 100) {
+                navbar.classList.add('scrolled');
             } else {
-                navbar.style.background = 'rgba(0,0,0,0.95)';
-                navbar.style.backdropFilter = 'blur(20px)';
-                navbar.style.boxShadow = 'none';
+                navbar.classList.remove('scrolled');
+            }
+
+            // Add hide/show navbar on scroll direction
+            if (scrollY > lastScrollY && scrollY > 200) {
+                // Scrolling down
+                navbar.classList.add('hidden');
+            } else {
+                // Scrolling up
+                navbar.classList.remove('hidden');
+            }
+
+            lastScrollY = scrollY;
+            ticking = false;
+        };
+
+        const requestTick = () => {
+            if (!ticking) {
+                requestAnimationFrame(updateNavbar);
+                ticking = true;
             }
         };
 
-        window.addEventListener('scroll', updateNavbar);
+        window.addEventListener('scroll', requestTick);
+        
+        // Add enhanced navbar effects
+        this.addEnhancedNavbarEffects();
+        this.initNavbarParticles();
+        this.addMagneticEffect();
+    }
+
+    // Add advanced navbar hover effects
+    addEnhancedNavbarEffects() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        const navbar = document.querySelector('.navbar');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', (e) => {
+                // Create enhanced ripple effect
+                const ripple = document.createElement('span');
+                ripple.className = 'nav-ripple';
+                const rect = link.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                link.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 800);
+
+                // Add glow effect to navbar
+                navbar.style.boxShadow = '0 15px 60px rgba(139, 92, 246, 0.4), 0 8px 30px rgba(255, 107, 107, 0.2)';
+            });
+
+            link.addEventListener('mouseleave', () => {
+                // Reset navbar glow
+                setTimeout(() => {
+                    if (!navbar.matches(':hover')) {
+                        navbar.style.boxShadow = '';
+                    }
+                }, 300);
+            });
+        });
+
+        // Add active link highlighting with smooth transitions
+        const currentHash = window.location.hash || '#home';
+        const activeLink = document.querySelector(`a[href="${currentHash}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active');
+        }
+
+        // Enhanced active link detection
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 300;
+                const sectionHeight = section.offsetHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    }
+
+    // Initialize floating particles in navbar
+    initNavbarParticles() {
+        const particleContainer = document.querySelector('.navbar-particles');
+        if (!particleContainer) return;
+
+        const createParticle = () => {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = (Math.random() * 10 + 8) + 's';
+            particle.style.animationDelay = Math.random() * 2 + 's';
+            particleContainer.appendChild(particle);
+
+            // Remove particle after animation
+            setTimeout(() => {
+                if (particle.parentNode) {
+                    particle.remove();
+                }
+            }, 15000);
+        };
+
+        // Create initial particles
+        for (let i = 0; i < 15; i++) {
+            setTimeout(() => createParticle(), Math.random() * 5000);
+        }
+
+        // Continuously create new particles
+        setInterval(createParticle, 800);
+    }
+
+    // Add magnetic hover effect to nav elements
+    addMagneticEffect() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        const navBrand = document.querySelector('.nav-brand h2');
+
+        const addMagnetic = (element) => {
+            element.addEventListener('mousemove', (e) => {
+                const rect = element.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                const moveX = x * 0.3;
+                const moveY = y * 0.3;
+                
+                element.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.05)`;
+            });
+
+            element.addEventListener('mouseleave', () => {
+                element.style.transform = '';
+            });
+        };
+
+        navLinks.forEach(addMagnetic);
+        if (navBrand) addMagnetic(navBrand);
     }
 
     // ===== Scroll Events =====

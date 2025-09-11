@@ -33,7 +33,7 @@
 
     <!-- Navigation -->
     <nav class="navbar">
-        
+        <div class="navbar-particles"></div>
         <div class="container">
             <div class="nav-brand">
                 <h2>Sustainovate 2.0</h2>
@@ -51,7 +51,6 @@
                 <span></span>
             </div>
         </div>
-        
     </nav>
 
     <!-- Hero Section -->
@@ -148,36 +147,60 @@
     </section>
 
 
-    <!-- News Section -->
-    <section id ="timeline" class="section section-black">
+    <!-- Timeline Section -->
+    <section id="timeline" class="section section-black">
         <div class="container">
             <h2 class="section-title white">Timeline</h2>
-            <div class="news-grid">
-                <div class="news-card" data-aos="slide-right">
-                    <div class="news-date">September 30, 2025 | 11:59 PM</div>
-                    <h3>Last date to submit your Ideas</h3>
-                    <span class="news-tag">Round 1</span>
-                    <h6><i class="fas fa-map-marker-alt"></i>  Online</h6>
-                    <p>Submit your innovative AI solutions for sustainability challenges (PPT, max 7 slides)</p>
+            
+            <div class="horizontal-timeline">
+                <div class="timeline-line-horizontal"></div>
+                
+                <div class="timeline-steps">
+                    <div class="timeline-step" data-aos="fade-up" data-aos-delay="100">
+                        <div class="timeline-dot-horizontal">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="timeline-content-horizontal">
+                            <div class="timeline-date">Sept 30, 2025</div>
+                            <h3>Submit Ideas</h3>
+                            <span class="timeline-badge round-1">Round 1</span>
+                            <div class="timeline-location">
+                                <i class="fas fa-globe"></i> Online
+                            </div>
+                            <p>Submit your innovative AI solutions (PPT, max 7 slides)</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-step" data-aos="fade-up" data-aos-delay="200">
+                        <div class="timeline-dot-horizontal">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="timeline-content-horizontal">
+                            <div class="timeline-date">Oct 1-7, 2025</div>
+                            <h3>Team Selection</h3>
+                            <span class="timeline-badge round-2">Round 2</span>
+                            <div class="timeline-location">
+                                <i class="fas fa-bell"></i> Notification
+                            </div>
+                            <p>Shortlisted teams qualified for MIT Campus finals</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-step" data-aos="fade-up" data-aos-delay="300">
+                        <div class="timeline-dot-horizontal timeline-final">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="timeline-content-horizontal">
+                            <div class="timeline-date">Oct 31, 2025</div>
+                            <h3>Grand Finale</h3>
+                            <span class="timeline-badge final-round">Final Round</span>
+                            <div class="timeline-location">
+                                <i class="fas fa-map-marker-alt"></i> MIT Campus
+                            </div>
+                            <p>24-hour hackathon, final pitches & awards</p>
+                        </div>
+                    </div>
                 </div>
-
-                  <div class="news-card" data-aos="slide-left">
-                    <div class="news-date">October 1 2025 - October 7, 2025 | 11:59 PM</div>
-                    <h3>Shortlisted Team Announcement</h3>
-                    <span class="news-tag">Round 2</span>
-                    <p>Shortlisted teams are qualified for the finals and will be invited to the MIT Campus, Anna University, Chennai for the offline 24-hour hackathon</p>
-                </div>
-
-
-                <div class="news-card" data-aos="slide-left">
-                    <div class="news-date">October 31, 2025</div>
-                    <h3>Grand Finale</h3>
-                    <span class="news-tag">Final Round</span>
-                    <h6><i class="fas fa-map-marker-alt"></i>  DCT, MIT Campus</h6>
-                    <p>Final pitches, judging, and award ceremony</p>
-                </div>
-
-
             </div>
         </div>
     </section>
@@ -201,13 +224,13 @@
 
 
 
-                <div class="prize-card" data-aos="zoom-in" data-aos-delay="300000">
+                <div class="prize-card first-prize" data-aos="zoom-in" data-aos-delay="300000">
                     <div class="prize-rank">🥇</div>
                     <div class="prize-amount" data-target="50000">₹0</div>
                     <div class="prize-title">First Prize</div>
                 </div>
 
-                    <div class="prize-card" data-aos="zoom-in" data-aos-delay="500000">
+                    <div class="prize-card second-prize" data-aos="zoom-in" data-aos-delay="500000">
                     <div class="prize-rank">🥈</div>
                     <div class="prize-amount" data-target="25000">₹0</div>
                     <div class="prize-title">Second Prize</div>
@@ -216,7 +239,7 @@
 
                 
             
-                <div class="prize-card" data-aos="zoom-in" data-aos-delay="700000">
+                <div class="prize-card third-prize" data-aos="zoom-in" data-aos-delay="700000">
                     <div class="prize-rank">🥉</div>
                     <div class="prize-amount" data-target="15000">₹0</div>
                     <div class="prize-title">Third Prize</div>
