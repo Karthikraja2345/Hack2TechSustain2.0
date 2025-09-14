@@ -5,16 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hack2TechSustain 2.0 – Sustainovate</title>
     
-    <!-- Google Fonts - Inter & Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Performance Optimization: DNS prefetch and preconnect -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
     
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Critical CSS preload -->
+    <link rel="preload" href="style.css" as="style">
+    
+    <!-- Meta tags for better caching -->
+    <meta http-equiv="Cache-Control" content="public, max-age=31536000">
+    <meta name="theme-color" content="#8b5cf6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Google Fonts - Inter & Poppins (optimized) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Font Awesome Icons (deferred) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS (deferred) -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"></noscript>
 </head>
 <body>
     <!-- Loading Screen -->
@@ -260,16 +283,16 @@
         <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
             <div class="carousel-inner rounded-4 shadow-lg">
                 <div class="carousel-item active">
-                    <img src="slide3.jpg" class="d-block w-100" alt="Image 1">
+                    <img src="slide3.jpg" class="d-block w-100" alt="Image 1" loading="lazy">
                 </div>
                 <div class="carousel-item">
-                    <img src="conference.jpg" class="d-block w-100" alt="Image 2">
+                    <img src="conference.jpg" class="d-block w-100" alt="Image 2" loading="lazy">
                 </div>
                 <div class="carousel-item">
-                    <img src="slide2.jpeg" class="d-block w-100" alt="Image 3">
+                    <img src="slide2.jpeg" class="d-block w-100" alt="Image 3" loading="lazy">
                 </div>
                 <div class="carousel-item">
-                    <img src="admin.png" class="d-block w-100" alt="Image 4">
+                    <img src="admin.png" class="d-block w-100" alt="Image 4" loading="lazy">
                 </div>
             </div>
 
@@ -293,7 +316,7 @@
 </section>
 
 <!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
 
     <!-- Organizers Section -->
     <section class="section section-white">
@@ -303,7 +326,7 @@
              
                 <div class="organizer-card" data-aos="fade-up" data-aos-delay="200">
                    <div class="organizer-aavatar">
-                        <img src="slide3.jpg"  alt="Dean of mit">
+                        <img src="slide3.jpg" alt="Dean of mit" loading="lazy">
                     </div>
                     <h3>Dr. Jayashree Padmanabhan</h3>
                     <p class="organizer-role">Dean of MIT</p>
@@ -341,7 +364,7 @@
             <div class="organizers-grid">
                 <div class="organizer-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="organizer-aavatar">
-                        <img src="kottilingam.jpg" alt="kottilingam">
+                        <img src="kottilingam.jpg" alt="kottilingam" loading="lazy">
                     </div>
                     <h3>Dr. Kottilingam Kottursamy</h3>
                     <p class="organizer-role">Faculty Coordinator</p>
@@ -367,7 +390,7 @@
 
                 <div class="organizer-card" data-aos="fade-up" data-aos-delay="300">
                      <div class="organizer-aavatar">
-                        <img src="kathiroli.jpeg" alt="kottilingam">
+                        <img src="kathiroli.jpeg" alt="kottilingam" loading="lazy">
                     </div>
                     <h3>Dr. Kathiroli Raja</h3>
                     <p class="organizer-role">Faculty Coordinator</p>
@@ -416,7 +439,7 @@
             <div class="organizers-grid">
                 <div class="organizer-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="organizer-aavatar">
-                        <img src="durai.jpg" alt="kottilingam">
+                        <img src="durai.jpg" alt="kottilingam" loading="lazy">
                     </div>
                     <h3>Duraisingh J</h3>
                     <p class="organizer-role">Event Coordinator</p>
@@ -437,7 +460,7 @@
                 </div>
                 <div class="organizer-card" data-aos="fade-up" data-aos-delay="200">
                    <div class="organizer-aavatar">
-                        <img src="sriram.jpg" alt="Dean of mit">
+                        <img src="sriram.jpg" alt="Dean of mit" loading="lazy">
                     </div>
                     <h3>Sriram S</h3>
                     <p class="organizer-role">Event Coordinator</p>
@@ -461,7 +484,7 @@
                 </div>
                 <div class="organizer-card" data-aos="fade-up" data-aos-delay="300">
                      <div class="organizer-aavatar">
-                        <img src="natasha.jpg" alt="kottilingam">
+                        <img src="natasha.jpg" alt="kottilingam" loading="lazy">
                     </div>
                     <h3>Natasha Azmi</h3>
                     <p class="organizer-role">Event Coordinator</p>
@@ -485,7 +508,7 @@
 
                 <div class="organizer-card" data-aos="fade-up" data-aos-delay="300">
                      <div class="organizer-aavatar">
-                        <img src="sivasankari.jpg" alt="siva">
+                        <img src="sivasankari.jpg" alt="siva" loading="lazy">
                     </div>
                     <h3>Sivasankari M</h3>
                     <p class="organizer-role">Event Coordinator</p>
@@ -508,7 +531,7 @@
 
                         <div class="organizer-card" data-aos="fade-up" data-aos-delay="300">
                      <div class="organizer-aavatar">
-                        <img src="keerthana.jpg" alt="kottilingam">
+                        <img src="keerthana.jpg" alt="kottilingam" loading="lazy">
                     </div>
                     <h3>Keerthana Ganesh Babu</h3>
                     <p class="organizer-role">Event Coordinator</p>
@@ -533,7 +556,7 @@
 
                         <div class="organizer-card" data-aos="fade-up" data-aos-delay="300">
                      <div class="organizer-aavatar">
-                        <img src="lokesh.jpg" alt="kottilingam">
+                        <img src="lokesh.jpg" alt="kottilingam" loading="lazy">
                     </div>
                     <h3>Lokesh R N</h3>
                     <p class="organizer-role">Event Coordinator</p>
@@ -559,7 +582,7 @@
 
                         <div class="organizer-card" data-aos="fade-up" data-aos-delay="300">
                      <div class="organizer-aavatar">
-                        <img src="kishore.png" alt="kottilingam">
+                        <img src="kishore.png" alt="kottilingam" loading="lazy">
                     </div>
                     <h3>Kishor M</h3>
                     <p class="organizer-role">Event Coordinator</p>
@@ -584,7 +607,7 @@
 
                         <div class="organizer-card" data-aos="fade-up" data-aos-delay="300">
                      <div class="organizer-aavatar">
-                        <img src="gokul.jpg" alt="gokul">
+                        <img src="gokul.jpg" alt="gokul" loading="lazy">
                     </div>
                     <h3>Gokul K</h3>
                     <p class="organizer-role">Event Coordinator</p>
@@ -609,7 +632,7 @@
 
                  <div class="organizer-card" data-aos="fade-up" data-aos-delay="300">
                      <div class="organizer-aavatar">
-                        <img src="kavin.jpg" alt="kavin">
+                        <img src="kavin.jpg" alt="kavin" loading="lazy">
                     </div>
                     <h3>Kavin K S</h3>
                     <p class="organizer-role">Event Coordinator</p>
@@ -633,7 +656,7 @@
 
                 <div class="organizer-card" data-aos="fade-up" data-aos-delay="300">
                      <div class="organizer-aavatar">
-                        <img src="perumal.jpg" alt="Arumugam">
+                        <img src="perumal.jpg" alt="Arumugam" loading="lazy">
                     </div>
                     <h3>Arumuga Perumal G</h3>
                     <p class="organizer-role">Event Coordinator</p>
@@ -681,7 +704,7 @@
             <div class="organizers-grid">
                 <div class="organizer-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="organizer-aavatar">
-                        <img src="karhikraja.jpg" alt="karthikraja">
+                        <img src="karhikraja.jpg" alt="karthikraja" loading="lazy">
                     </div>
                     <h3>Karthik raja A</h3>
                     <p class="organizer-role">Web Developer</p>
@@ -701,7 +724,7 @@
                 </div>
                 <div class="organizer-card" data-aos="fade-up" data-aos-delay="200">
                    <div class="organizer-aavatar">
-                        <img src="m.jpg" alt="suriya">
+                        <img src="m.jpg" alt="suriya" loading="lazy">
                     </div>
                     <h3>Jaya Suriya S</h3>
                     <p class="organizer-role">Web Developer</p>
@@ -810,7 +833,7 @@
     </footer>
 
     <!-- Custom JavaScript -->
-    <script src="app.js"></script>
+    <script src="app.js" defer></script>
 </body>
 
 </html>

@@ -1,0 +1,90 @@
+import React, { useState, useEffect } from 'react'
+
+const Hero = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  })
+
+  useEffect(() => {
+    const targetDate = new Date('October 31, 2025 00:00:00').getTime()
+
+    const updateCountdown = () => {
+      const now = new Date().getTime()
+      const distance = targetDate - now
+
+      if (distance < 0) {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+        return
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24))
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000)
+
+      setTimeLeft({ days, hours, minutes, seconds })
+    }
+
+    updateCountdown()
+    const interval = setInterval(updateCountdown, 1000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  const formatTime = (time) => time.toString().padStart(2, '0')
+
+  return (
+    <section id="home" className="hero">
+      <div className="hero-bg">
+        <div className="hero-particles"></div>
+      </div>
+      <div className="hero-geometric"></div>
+      <div className="hero-scanlines"></div>
+      <div className="digital-rain"></div>
+      <div className="tech-grid"></div>
+      <div className="floating-icons"></div>
+      <div className="container">
+        <div className="hero-content">
+          <h1 className="hero-title">
+            <span className="title-line">Hack2TechSustain 2.0</span>
+            <span className="title-line accent">Sustainovate</span>
+          </h1>
+          <p className="hero-subtitle">Leveraging AI's Voice, Vision, and Values for a Better World</p>
+          
+          <div className="countdown-container">
+            <div className="countdown-timer">
+              <div className="countdown-card">
+                <div className="countdown-number">{formatTime(timeLeft.days)}</div>
+                <div className="countdown-label">Days</div>
+              </div>
+              <div className="countdown-card">
+                <div className="countdown-number">{formatTime(timeLeft.hours)}</div>
+                <div className="countdown-label">Hours</div>
+              </div>
+              <div className="countdown-card">
+                <div className="countdown-number">{formatTime(timeLeft.minutes)}</div>
+                <div className="countdown-label">Minutes</div>
+              </div>
+              <div className="countdown-card">
+                <div className="countdown-number">{formatTime(timeLeft.seconds)}</div>
+                <div className="countdown-label">Seconds</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="hero-buttons">
+            <a href="https://unstop.com/o/tjRnGdw?lb=oaOJRUkw&utm_medium=Share&utm_source=WhatsApp" target="_blank" className="btn btn-orange">
+              <i className="fas fa-cloud-upload-alt"></i>
+              Submit Your Idea via Unstop
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Hero
