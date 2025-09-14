@@ -74,12 +74,39 @@ const Organizers = () => {
       linkedin: 'https://in.linkedin.com/in/keerthana-gb-17722328b'
     },
     {
-      name: 'Lokesh R N',
+      name: 'Gokul K',
       role: 'Event Coordinator',
       dept: 'Computer Technology',
-      image: '/images/lokesh.jpg',
-      phone: '+919344362544',
-      linkedin: 'https://in.linkedin.com/in/lokesh-rn'
+      image: '/images/gokul.jpg',
+      email: 'gokulgk1905@gmail.com',
+      phone: '+916374319224'
+    },
+    {
+      name: 'Arumuga Perumal G',
+      role: 'Event Coordinator',
+      dept: 'Computer Technology',
+      image: '/images/perumal.jpg',
+      email: 'perumalarumuga67@gmail.com',
+      phone: '+919790074763',
+      linkedin: 'https://in.linkedin.com/in/arumuga-perumal-a0469b378'
+    },
+    {
+      name: 'Kavin K S',
+      role: 'Event Coordinator',
+      dept: 'Computer Technology',
+      image: '/images/kavin.jpg',
+      email: 'perumalarumuga67@gmail.com',
+      phone: '+919345729298',
+      linkedin: 'https://www.linkedin.com/in/kavin-k-s-8b132528a'
+    },
+    {
+      name: 'Kishor M',
+      role: 'Event Coordinator',
+      dept: 'Computer Technology',
+      image: '/images/kishore.png',
+      email: 'kishorurc@gmail.com',
+      phone: '+919345437285',
+      linkedin: 'https://in.linkedin.com/in/kishor-m-b20561291'
     }
   ]
 
@@ -101,6 +128,14 @@ const Organizers = () => {
       email: 'jayasuriya77721@gmail.com',
       phone: '+917502737734',
       linkedin: 'https://www.linkedin.com/in/jayasuriya-s-39302b2b6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
+    },
+    {
+      name: 'Lokesh R N',
+      role: 'Web Developer',
+      dept: 'Computer Technology',
+      image: '/images/lokesh.jpg',
+      phone: '+919344362544',
+      linkedin: 'https://in.linkedin.com/in/lokesh-rn'
     }
   ]
 

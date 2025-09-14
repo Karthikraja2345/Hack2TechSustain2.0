@@ -47,18 +47,12 @@ const Problems = () => {
         <h2 className="section-title fade-in visible">Problem Statements</h2>
         <div className="card-container">
           {problemStatements.map((problem) => (
-            <div key={problem.id} className="card-flip-container fade-in visible tech-card" id={problem.id}>
-              <div className="card-flip">
-                {/* Front side - Title only */}
-                <div className="card-front">
-                  <h3>{problem.title}</h3>
-                </div>
-                {/* Back side - Description */}
-                <div className="card-back">
-                  <p>{problem.description}</p>
-                </div>
+            <div key={problem.id} id={problem.id} className="theme-card fade-in visible">
+              <div className="theme-card__media" aria-hidden="true" />
+              <div className="theme-card__body">
+                <h3 className="theme-card__title">{problem.title}</h3>
+                <p className="theme-card__desc">{problem.description}</p>
               </div>
-              <div className="card-glow"></div>
             </div>
           ))}
         </div>
