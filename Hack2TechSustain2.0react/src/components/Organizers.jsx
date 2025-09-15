@@ -79,7 +79,8 @@ const Organizers = () => {
       dept: 'Computer Technology',
       image: '/images/gokul.jpg',
       email: 'gokulgk1905@gmail.com',
-      phone: '+916374319224'
+      phone: '+916374319224',
+      linkedin: 'https://in.linkedin.com/in/arumuga-perumal-a0469b378'
     },
     {
       name: 'Arumuga Perumal G',
