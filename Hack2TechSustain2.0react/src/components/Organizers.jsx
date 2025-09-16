@@ -1,5 +1,5 @@
 import React from 'react'
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
+import LazyOrganizerSection from './LazyOrganizerSection'
 
 const Organizers = React.memo(() => {
   const convenor = {
@@ -182,50 +182,44 @@ const Organizers = React.memo(() => {
   return (
     <>
       {/* Convenor Section */}
-      <section className="section section-white">
-        <div className="container">
-          <h2 className="section-title">Meet the Convenor</h2>
-          <div className="organizers-grid">
-            <OrganizerCard person={convenor} delay="200" />
-          </div>
-        </div>
-      </section>
+      <LazyOrganizerSection
+        title="Meet the Convenor"
+        organizers={[convenor]}
+        renderCard={(person, index) => (
+          <OrganizerCard key={index} person={person} delay="200" />
+        )}
+        chunkSize={1}
+      />
 
       {/* Faculty Coordinators Section */}
-      <section className="section section-white">
-        <div className="container">
-          <h2 className="section-title">Meet the faculty Coordinators</h2>
-          <div className="organizers-grid">
-            {facultyCoordinators.map((person, index) => (
-              <OrganizerCard key={index} person={person} delay={(index * 200 + 100).toString()} />
-            ))}
-          </div>
-        </div>
-      </section>
+      <LazyOrganizerSection
+        title="Meet the Faculty Coordinators"
+        organizers={facultyCoordinators}
+        renderCard={(person, index) => (
+          <OrganizerCard key={index} person={person} delay={(index * 200 + 100).toString()} />
+        )}
+        chunkSize={2}
+      />
 
       {/* Event Coordinators Section */}
-      <section className="section section-white">
-        <div className="container">
-          <h2 className="section-title">Meet the Event Coordinators</h2>
-          <div className="organizers-grid">
-            {eventCoordinators.map((person, index) => (
-              <OrganizerCard key={index} person={person} delay={(index * 100 + 100).toString()} />
-            ))}
-          </div>
-        </div>
-      </section>
+      <LazyOrganizerSection
+        title="Meet the Event Coordinators"
+        organizers={eventCoordinators}
+        renderCard={(person, index) => (
+          <OrganizerCard key={index} person={person} delay={(index * 100 + 100).toString()} />
+        )}
+        chunkSize={6}
+      />
 
       {/* Web Development Team Section */}
-      <section className="section section-white">
-        <div className="container">
-          <h2 className="section-title">Meet the Web Development Team</h2>
-          <div className="organizers-grid">
-            {webDevelopers.map((person, index) => (
-              <OrganizerCard key={index} person={person} delay={(index * 200 + 100).toString()} />
-            ))}
-          </div>
-        </div>
-      </section>
+      <LazyOrganizerSection
+        title="Meet the Web Development Team"
+        organizers={webDevelopers}
+        renderCard={(person, index) => (
+          <OrganizerCard key={index} person={person} delay={(index * 200 + 100).toString()} />
+        )}
+        chunkSize={3}
+      />
     </>
   )
 })
