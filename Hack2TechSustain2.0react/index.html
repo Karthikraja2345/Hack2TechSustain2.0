@@ -18,6 +18,24 @@
     
     <!-- Meta tags for better caching -->
     <meta http-equiv="Cache-Control" content="public, max-age=31536000">
+    
+    <!-- Preload critical images -->
+    <link rel="preload" href="/images/slide3.jpg" as="image" media="(min-width: 768px)">
+    
+    <!-- Prevent layout shifts with image dimensions -->
+    <style>
+      img { 
+        max-width: 100%; 
+        height: auto; 
+        display: block;
+      }
+      .loading-fallback {
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
     <meta name="theme-color" content="#8b5cf6">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">

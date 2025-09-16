@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const LoadingScreen = () => {
+const LoadingScreen = React.memo(() => {
   const [isVisible, setIsVisible] = useState(true)
 
   useEffect(() => {
@@ -27,6 +27,6 @@ const LoadingScreen = () => {
       </div>
     </div>
   )
-}
+})
 
 export default LoadingScreen

@@ -1,6 +1,7 @@
 import React from 'react'
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
 
-const Organizers = () => {
+const Organizers = React.memo(() => {
   const convenor = {
     name: 'Dr. Jayashree Padmanabhan',
     role: 'Dean of MIT',
@@ -140,10 +141,20 @@ const Organizers = () => {
     }
   ]
 
-  const OrganizerCard = ({ person, delay = "0" }) => (
+  const OrganizerCard = React.memo(({ person, delay = "0" }) => (
     <div className="organizer-card" data-aos="fade-up" data-aos-delay={delay}>
       <div className="organizer-aavatar">
-        <img src={person.image} alt={person.name} loading="lazy" />
+        <img 
+          src={person.image} 
+          alt={person.name} 
+          loading="lazy"
+          decoding="async"
+          style={{
+            width: '100%',
+            height: '200px',
+            objectFit: 'cover'
+          }}
+        />
       </div>
       <h3>{person.name}</h3>
       <p className="organizer-role">{person.role}</p>
@@ -166,7 +177,7 @@ const Organizers = () => {
         )}
       </div>
     </div>
-  )
+  ))
 
   return (
     <>
@@ -217,6 +228,6 @@ const Organizers = () => {
       </section>
     </>
   )
-}
+})
 
 export default Organizers

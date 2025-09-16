@@ -45,6 +45,17 @@
   transform: translateY(-2px) scale(0.98);
   transition: all 0.1s var(--ease-standard);
 }
+
+/* Loading fallback for lazy components */
+.loading-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: var(--color-white);
+  font-size: 1.1rem;
+}
+
 :root {
   /* Modern Color Tokens */
   --color-white: rgba(255, 255, 255, 1);
