@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useMemo } from 'react'
 
-const Problems = () => {
+const Problems = React.memo(() => {
   const sectionRef = useRef(null)
 
-  const problemStatements = [
+  const problemStatements = useMemo(() => [
     {
       id: 'card1',
       title: 'Sustainability & Climate Action',
@@ -29,7 +29,7 @@ const Problems = () => {
       title: 'Data, Language & Impact',
       description: 'Transform data into impactful, accessible sustainability insights'
     }
-  ]
+  ], [])
 
   useEffect(() => {
     // Make cards visible when component mounts
@@ -59,6 +59,6 @@ const Problems = () => {
       </div>
     </section>
   )
-}
+})
 
 export default Problems
