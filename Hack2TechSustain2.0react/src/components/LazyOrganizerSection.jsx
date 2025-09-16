@@ -1,10 +1,11 @@
 import React from 'react'
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
+import OrganizerSkeleton from './OrganizerSkeleton'
 
 const LazyOrganizerSection = React.memo(({ title, organizers, renderCard, chunkSize = 3 }) => {
   const { elementRef, hasBeenVisible } = useIntersectionObserver({
-    threshold: 0.1,
-    rootMargin: '100px'
+    threshold: 0.05, // Lower threshold for faster loading
+    rootMargin: '200px' // Larger margin for earlier loading
   })
 
   return (
@@ -15,23 +16,9 @@ const LazyOrganizerSection = React.memo(({ title, organizers, renderCard, chunkS
           {hasBeenVisible ? (
             organizers.map((person, index) => renderCard(person, index))
           ) : (
-            // Render placeholder cards to maintain layout
+            // Render skeleton loaders to maintain layout and show loading state
             Array.from({ length: Math.min(organizers.length, chunkSize) }).map((_, index) => (
-              <div 
-                key={index} 
-                className="organizer-card-placeholder"
-                style={{
-                  height: '300px',
-                  backgroundColor: '#f0f0f0',
-                  borderRadius: '8px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#888'
-                }}
-              >
-                Loading...
-              </div>
+              <OrganizerSkeleton key={`skeleton-${index}`} />
             ))
           )}
         </div>
