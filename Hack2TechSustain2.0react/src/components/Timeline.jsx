@@ -13,7 +13,7 @@ const Timeline = () => {
       delay: '100'
     },
     {
-      date: 'Oct 1-7, 2025',
+      date: 'Oct 16-20, 2025',
       title: 'Team Selection',
       badge: 'Round 2',
       badgeClass: 'round-2',
