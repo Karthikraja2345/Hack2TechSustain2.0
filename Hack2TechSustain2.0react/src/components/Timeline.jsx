@@ -19,7 +19,7 @@ const Timeline = () => {
       badgeClass: 'round-2',
       location: 'Notification',
       icon: 'fas fa-users',
-      description: 'Shortlisted teams will qualify for Finals @ MIT Campus',
+      description: 'Shortlisted teams will qualify for the Grand Finale at Anna University, MIT Campus',
       delay: '200'
     },
     {
