@@ -1,0 +1,77 @@
+/**
+ * Local fonts CSS - replaces Google Fonts for better performance
+ * This file contains @font-face declarations for locally hosted fonts
+ */
+
+/* Inter Font Family */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/inter-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/inter-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/inter-600.woff2') format('woff2');
+}
+
+/* Note: inter-700.woff2 not available, fallback to system fonts for bold */
+
+/* Poppins Font Family */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/poppins-400.woff2') format('woff2');
+}
+
+/* Note: poppins-500.woff2 not available, fallback to 400 or 600 */
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/poppins-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/poppins-700.woff2') format('woff2');
+}
+
+/* CSS Variables for font families - for easy switching */
+:root {
+  --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-poppins: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Apply fonts to commonly used selectors */
+body {
+  font-family: var(--font-inter);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-poppins);
+}
+
+.hero-title, .section-title {
+  font-family: var(--font-poppins);
+}

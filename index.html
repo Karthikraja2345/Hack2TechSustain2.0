@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hack2TechSustain 2.0 – Sustainovate</title>
+    
+    <!-- Performance Optimization: DNS prefetch for essential external resources only -->
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Prefetch critical JavaScript modules -->
+    <link rel="modulepreload" href="/src/main.jsx">
+    <link rel="modulepreload" href="/src/App.jsx">
+    <link rel="modulepreload" href="/src/components/Hero.jsx">
+    
+    <!-- Remove slide3.webp preload since it's not used in above-the-fold content -->
+    
+    <!-- Preload critical local fonts for LCP improvement -->
+    <link rel="preload" href="/fonts/poppins-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Local fonts CSS (replaces Google Fonts) -->
+    <link rel="stylesheet" href="/fonts/fonts.css">
+    
+    <!-- Prevent layout shifts with image dimensions -->
+    <style>
+      img { 
+        max-width: 100%; 
+        height: auto; 
+        display: block;
+      }
+      .loading-fallback {
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      /* Critical CSS for hero to improve LCP */
+      .hero-content {
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+      .hero-title {
+        font-family: var(--font-poppins, 'Poppins', sans-serif);
+        font-weight: 700;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        color: #1a1a1a;
+      }
+      .title-line {
+        display: inline-block;
+      }
+      
+      /* Minimal Bootstrap replacement for container and grid */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -0.75rem;
+      }
+      .col, .col-md-6, .col-lg-4 {
+        padding: 0 0.75rem;
+        flex: 1;
+      }
+      @media (min-width: 768px) {
+        .col-md-6 { flex: 0 0 50%; }
+      }
+      @media (min-width: 992px) {
+        .col-lg-4 { flex: 0 0 33.333333%; }
+      }
+      .btn {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 0.25rem;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.15s ease-in-out;
+      }
+      .btn:hover {
+        background: #0056b3;
+      }
+      .btn-primary {
+        background: #007bff;
+      }
+      .btn-primary:hover {
+        background: #0056b3;
+      }
+    </style>
+    <meta name="theme-color" content="#8b5cf6">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Font Awesome Icons (deferred) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "name": "hack2techsustain2.0",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "optimize:images": "node scripts/optimize-images.js",
+    "fetch:fonts": "node scripts/fetch-fonts.js",
+    "profile:build": "vite build --mode production && echo 'Run Lighthouse or preview with npm run preview'"
+  },
+  "dependencies": {
+    "@types/react-window": "^1.8.8",
+    "framer-motion": "^11.0.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-intersection-observer": "^9.5.0",
+    "react-router-dom": "^6.28.0",
+    "react-window": "^2.2.2",
+    "react-window-infinite-loader": "^2.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.0",
+    "eslint": "^9.33.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "sharp": "^0.34.4",
+    "terser": "^5.44.0",
+    "vite": "^7.1.2"
+  }
+}

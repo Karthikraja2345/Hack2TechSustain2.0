@@ -1,0 +1,64 @@
+import React, { useEffect, useRef, useMemo } from 'react'
+
+const Problems = React.memo(() => {
+  const sectionRef = useRef(null)
+
+  const problemStatements = useMemo(() => [
+    {
+      id: 'card1',
+      title: 'Sustainability & Climate Action',
+      description: 'Use generative AI to visualize and communicate climate impacts'
+    },
+    {
+      id: 'card2',
+      title: 'Technology for Social Good',
+      description: 'Apply AI in building inclusive tools for communities and policies'
+    },
+    {
+      id: 'card3',
+      title: 'Equity, Inclusion & Education',
+      description: 'Innovate using generative tools to deliver inclusive education'
+    },
+    {
+      id: 'card4',
+      title: 'Vision, Art & Expression',
+      description: 'Inspire change through AI-generated narratives and media'
+    },
+    {
+      id: 'card5',
+      title: 'Data, Language & Impact',
+      description: 'Transform data into impactful, accessible sustainability insights'
+    }
+  ], [])
+
+  useEffect(() => {
+    // Make cards visible when component mounts
+    const cards = sectionRef.current?.querySelectorAll('.fade-in')
+    cards?.forEach((card, index) => {
+      setTimeout(() => {
+        card.classList.add('visible')
+      }, index * 200) // Stagger the animation
+    })
+  }, [])
+
+  return (
+    <section id="problems" className="section section-white" ref={sectionRef}>
+      <div className="container">
+        <h2 className="section-title fade-in visible">Problem Statements</h2>
+        <div className="card-container">
+          {problemStatements.map((problem) => (
+            <div key={problem.id} id={problem.id} className="theme-card fade-in visible">
+              <div className="theme-card__media" aria-hidden="true" />
+              <div className="theme-card__body">
+                <h3 className="theme-card__title">{problem.title}</h3>
+                <p className="theme-card__desc">{problem.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+})
+
+export default Problems
