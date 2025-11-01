@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-env node */
 // Small helper to convert images in ./public/images to WebP (lossy with quality setting)
 // Usage: node scripts/optimize-images.js
 // Note: requires installing 'sharp' locally: npm i -D sharp

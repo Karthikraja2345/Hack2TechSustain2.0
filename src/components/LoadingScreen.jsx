@@ -20,7 +20,9 @@ const LoadingScreen = React.memo(() => {
         window.removeEventListener('pointerdown', dismiss)
         window.removeEventListener('touchstart', dismiss)
         window.removeEventListener('keydown', dismiss)
-      } catch {}
+      } catch {
+        // Silently ignore errors during cleanup
+      }
     }
   }, [])
 
