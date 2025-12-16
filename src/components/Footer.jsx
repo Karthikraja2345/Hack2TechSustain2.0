@@ -37,6 +37,7 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-nav">
             <a href="#home" className="nav-link" onClick={() => scrollToSection('home')}>Home</a>
+            <a href="#sponsors" className="nav-link" onClick={() => scrollToSection('sponsors')}>Sponsors</a>
             <a href="#problems" className="nav-link" onClick={() => scrollToSection('problems')}>Problems</a>
             <a href="#timeline" className="nav-link" onClick={() => scrollToSection('timeline')}>Timeline</a>
             <a href="#prizes" className="nav-link" onClick={() => scrollToSection('prizes')}>Prizes</a>

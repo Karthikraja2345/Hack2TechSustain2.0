@@ -7,6 +7,7 @@ import LazySection from './components/LazySection'
 import './critical.css'
 
 // Lazy load components that are not immediately visible
+const Sponsors = React.lazy(() => import('./components/Sponsors'))
 const Problems = React.lazy(() => import('./components/Problems'))
 const Timeline = React.lazy(() => import('./components/Timeline'))
 const Prizes = React.lazy(() => import('./components/Prizes'))
@@ -33,6 +34,11 @@ function App() {
         <LoadingScreen />
         <Navbar />
         <Hero />
+        <LazySection minHeight="300px">
+          <Suspense fallback={<div className="loading-fallback">Loading...</div>}>
+            <Sponsors />
+          </Suspense>
+        </LazySection>
         <LazySection minHeight="300px">
           <Suspense fallback={<div className="loading-fallback">Loading...</div>}>
             <Problems />
