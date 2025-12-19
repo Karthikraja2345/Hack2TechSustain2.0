@@ -87,12 +87,7 @@ const Hero = React.memo(() => {
             </div>
           </div>
 
-          <div className="hero-buttons">
-            <a href="https://unstop.com/o/tjRnGdw?lb=oaOJRUkw&utm_medium=Share&utm_source=WhatsApp" target="_blank" className="btn btn-orange">
-              <i className="fas fa-cloud-upload-alt"></i>
-              Submit Your Idea via Unstop
-            </a>
-          </div>
+          {/* Unstop submit button removed per request */}
         </div>
       </div>
     </section>
